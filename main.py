@@ -55,7 +55,6 @@ def ask_what_to_save(account_info: dict):
     what_to_save = input("What from this data you want to save to file? \n [1]target [2]username [3]additional iterations [4]all of them: ")
     if "4" in what_to_save:
         return account_info
-        print("вернуть словарь, а иначе накапливать новый словарь и вернуть его")
     else:
         save_info = {}
         if '1' in what_to_save:
