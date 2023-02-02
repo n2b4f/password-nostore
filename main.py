@@ -91,7 +91,8 @@ def main():
                 file_path = './'
                 for folder in file_path_list:
                     file_path = file_path + folder + '/'
-                os.makedirs(file_path)
+                if not os.path.isdir(file_path):
+                    os.makedirs(file_path)
                 file_path = file_path + file_path_filename
             with open(file_path, "w") as account_file:
                 account_file.write(json.dumps(account_info_save))
