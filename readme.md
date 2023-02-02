@@ -70,17 +70,21 @@ The program can store records, usage examples are below
     Our password copied to clipboard!
 
 ## Installation
-It's simple, everything is done in one file, so it's enough to add it to any directory from where it will be convenient to launch it and set its launch permissions, for example in /usr/local/bin, but I personally recommend adding it to $HOME/.local/bin, and adding this directory to $PATH (depends on your shell: bash, zsh, fish etc).
+Make sure that you installed python 3 and pip. Then run install.sh script.
 
-    > cp main.py ~/.local/bin/pns
-    # and then use
-    > pns -f .password-nostore/myfolders/myfiles
+    bash install.sh
 
-Also need to clipboard
+or
 
-    > pip install clipboard
+    chmod u+x install.sh
+    ./install.sh
+Then make sure that $HOME/.local/bin is in our $PATH.
 
-maybe install other stuff like `sudo apt-get install xclip` or `sudo apt-get install xsel` or `sudo apt install wl-clipboard` I dont know
+## After install user like that
+    pns -f .password-nostore/myfolders/myfiles
+
+For using clipboard you need to install xclip or xsel or wl-clipboard (for wayland) to our system.
+You can do this like `sudo apt-get install xclip` or `sudo apt-get install xsel` or `sudo apt install wl-clipboard`
 
 
 
