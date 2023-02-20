@@ -52,8 +52,8 @@ def ask_info_form(account_info: dict):
     return returned_dict
 
 def ask_what_to_save(account_info: dict):
-    what_to_save = input("What from this data you want to save to file? \n [1]target [2]username [3]additional iterations [4]all of them: ")
-    if "4" in what_to_save:
+    what_to_save = input("What from this data you want to save to file? \n [1]target [2]username [3]additional iterations [4]length [5]all of them: ")
+    if '5' in what_to_save:
         return account_info
     else:
         save_info = {}
@@ -63,10 +63,17 @@ def ask_what_to_save(account_info: dict):
             save_info['username'] = account_info['username']
         if '3' in what_to_save:
             save_info['additional_iterations'] = account_info['additional_iterations']
+        if '4' in what_to_save:
+            if 'length' in account_info:
+                save_info['length'] = account_info['length']
+            else:
+                print('length is not defined')
         return save_info
 
 def main():
     account_info = {}
+    if args.length:
+        account_info['length'] = args.length
     file_path = args.file
     if args.save == True:
         ask_overwrite = 'Y'
@@ -99,6 +106,9 @@ def main():
         else:
             print("File not saved")
     hashed_password = hashing_password(conc_str,iterations)
+    print(account_info)
+    if 'length' in account_info:
+        hashed_password = hashed_password[:account_info['length']]
     if args.clipboard == False:
         print(hashed_password)
     else:
@@ -110,6 +120,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--file', help='Load file with info', type=str, default='')
 parser.add_argument('-s', '--save', help='Add to storage', action='store_true', default=False)
 parser.add_argument('-c', '--clipboard', help='Copy password to clipboard instead on std::out', action='store_true', default=False)
+parser.add_argument('-l', '--length', help='set lenght to hashed password', type=int)
 args = parser.parse_args()
 config = Config()
 def_iterations = 100000
