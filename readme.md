@@ -32,6 +32,8 @@ Help also avaliable
      -f FILE, --file FILE  Load file with info
      -s, --save            Add to storage
      -c, --clipboard       Copy password to clipboard instead on std::out
+     -l LENGTH, --length LENGTH
+                        set lenght to hashed password
 
 
 
@@ -83,7 +85,7 @@ Then make sure that $HOME/.local/bin is in our $PATH.
 ## After install user like that
     pns -f .password-nostore/myfolders/myfiles
 
-For using clipboard you need to install xclip or xsel or wl-clipboard (for wayland) to our system.
+For using clipboard you need to install xclip or xsel or wl-clipboard (for wayland) to your system.
 You can do this like `sudo apt-get install xclip` or `sudo apt-get install xsel` or `sudo apt install wl-clipboard`
 
 
