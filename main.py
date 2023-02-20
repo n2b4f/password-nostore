@@ -106,7 +106,6 @@ def main():
         else:
             print("File not saved")
     hashed_password = hashing_password(conc_str,iterations)
-    print(account_info)
     if 'length' in account_info:
         hashed_password = hashed_password[:account_info['length']]
     if args.clipboard == False:
